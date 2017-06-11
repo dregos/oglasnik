@@ -1,5 +1,5 @@
         <footer class="site-footer">
-            <p>&copy; Adverts <?php echo date( 'Y' ); ?></p>
+            <p>&copy; Adverts <?php echo gmdate( 'Y' ); ?></p>
         </footer>
     </div>
 </body>

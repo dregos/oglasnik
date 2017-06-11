@@ -12,17 +12,17 @@
         echo("Niste predali ID!");
         die();
     }
-    
+
     $sql = "SELECT * FROM ads WHERE id=$ad_id";
-    $ad = fetchSQLData($conn, $sql);
+    $ad = $dbOglasnik->fetchData($sql);
 
     $ad_title=$ad[0]["title"];
     $ad_location=$ad[0]["location"];
     $ad_created=$ad[0]["created"];
 
     $sql = "SELECT * FROM categories";
-    $categories = fetchSQLData($conn, $sql);
-   
+    $categories = $dbOglasnik->fetchData($sql);
+
 
     //var_dump($categories);
 ?>
@@ -45,7 +45,7 @@
                                 }
                             ?>
                         </select>
-                        
+
                         <input type="submit" value="Update" name="submit">
                     </form>
                 </div>

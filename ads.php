@@ -1,9 +1,9 @@
 <?php include "db.php"; ?>
 
-<?php 
+<?php
 
     //delete ADD
-    
+
     if(isset($_GET)){
         if(isset($_GET["delete_id"])){
             $d_id =$_GET["delete_id"];
@@ -13,7 +13,7 @@
             header('Location: ads.php');
         }
     }
-    
+
 
 ?>
 
@@ -28,16 +28,7 @@
 
                         // Prepare statement
                         $sql = "SELECT * FROM ads";
-                        $statement = $conn->prepare($sql);
-
-                        // execute statement
-                        $statement->execute();
-
-                        // set the resulting array to associative
-                        $statement->setFetchMode(PDO::FETCH_ASSOC);
-
-                        // gets data from DB
-                        $ads = $statement->fetchAll();
+                        $ads = $dbOglasnik->fetchData($sql);
 
                         // uncomment to see if it works
                         //var_dump($ads);

@@ -1,3 +1,15 @@
+<?php include 'db.php'; ?>
+<?php
+
+  $ad_id = $_GET["id"];
+  if(!isset($ad_id)){
+      echo("Niste predali ID!");
+      die();
+  }
+
+  $adObj = new Ad($dbOglasnik->getAdById($ad_id));
+
+?>
 <?php include 'header.php'; ?>
     <section class="site-content">
         <div class="site-columns">
@@ -6,8 +18,8 @@
                     <h1>Ad</h1>
 
 
-                        <input type="text" value="<?php echo $ad_title ?>" name="title" placeholder="Title" required>
-                        <!--<textarea rows="10" name="text" placeholder="Type in the text of your ad..." required></textarea>-->
+                        <input type="text" value="<?php echo $adObj->title ?>" name="title" placeholder="Title">
+                        <textarea rows="10" name="text" placeholder="Type in the text of your ad..."></textarea>
 
                         <!-- Dodati dropdown iz koga ce moci da se odabere kategorija oglasa -->
                             <select name="categories">

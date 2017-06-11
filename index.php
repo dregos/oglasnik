@@ -7,24 +7,15 @@
                 <div class="container">
                     <h1>Adverts</h1>
 
-					<?php
+					              <?php
                         // Display last 5 ads
 
                         // Prepare statement
-                        $sql = "SELECT * FROM ads ORDER BY created DESC LIMIT 5";
-                        $statement = $conn->prepare($sql);
-
-                        // execute statement
-                        $statement->execute();
-
-                        // set the resulting array to associative
-                        $statement->setFetchMode(PDO::FETCH_ASSOC);
-
-                        // gets data from DB
-                        $ads = $statement->fetchAll();
+                        $sql = "SELECT * FROM ads ORDER BY created_at DESC LIMIT 5";
+                        $ads = $dbOglasnik->fetchData($sql);
 
                         //var_dump($ads);
-                        
+
                         foreach ($ads as $ad) {
                             echo("<a href='ad.php?id=".$ad["id"]."'>". $ad["title"] ."</a>");
                             echo("<br/>");
