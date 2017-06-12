@@ -2,3 +2,49 @@
 2017-06-12 16:03:11 --> test
 2017-06-12 16:03:13 --> test
 2017-06-12 16:03:13 --> Nije predan ID za zapis AD.
+2017-06-12 17:42:04 --> Update query:UPDATE ads SET title = 'prodajem traktor 2', text = 'Citroen Nemo 1.4 HDI 50 kw. 2009 god. Kao nov. Tek ocarinjen . Na ime kupca svi troskovi placeni , vasa je samo registracija ne treba da placate prevod jer je carinjen na firmu. . Motor, limarija, ...                                                                                                                                                ', category_id = 0 WHERE ads.id = 
+2017-06-12 17:46:13 --> ad_id:
+2017-06-12 17:46:13 --> category_id:0
+2017-06-12 17:46:13 --> Update query:UPDATE ads SET title = 'prodajem traktor', text = '                            Citroen Nemo 1.4 HDI 50 kw. 2009 god. Kao nov. Tek ocarinjen . Na ime kupca svi troskovi placeni , vasa je samo registracija ne treba da placate prevod jer je carinjen na firmu. . Motor, limarija, ...                                                                                                                                                ', category_id = 0 WHERE ads.id = 
+2017-06-12 17:46:31 --> ad_id:
+2017-06-12 17:46:31 --> category_id:1
+2017-06-12 17:46:31 --> Update query:UPDATE ads SET title = 'prodajem traktor', text = '                            Citroen Nemo 1.4 HDI 50 kw. 2009 god. Kao nov. Tek ocarinjen . Na ime kupca svi troskovi placeni , vasa je samo registracija ne treba da placate prevod jer je carinjen na firmu. . Motor, limarija, ...                                                                                                                                                ', category_id = 1 WHERE ads.id = 
+2017-06-12 18:02:47 --> ad_id:1
+2017-06-12 18:02:47 --> category_id:0
+2017-06-12 18:02:47 --> Update query:UPDATE ads SET title = 'prodajem traktor', text = '                            Citroen Nemo 1.4 HDI 50 kw. 2009 god. Kao nov. Tek ocarinjen . Na ime kupca svi troskovi placeni , vasa je samo registracija ne treba da placate prevod jer je carinjen na firmu. . Motor, limarija, ...                                                                                                                                                ', category_id = 0 WHERE ads.id = 1
+2017-06-12 18:02:55 --> ad_id:1
+2017-06-12 18:02:55 --> category_id:0
+2017-06-12 18:02:55 --> Update query:UPDATE ads SET title = 'prodajem traktor', text = '                            Citroen Nemo 1.4 HDI 50 kw. 2009 god. Kao nov. Tek ocarinjen . Na ime kupca svi troskovi placeni , vasa je samo registracija ne treba da placate prevod jer je carinjen na firmu. . Motor, limarija, ...                                                                                                                                                ', category_id = 0 WHERE ads.id = 1
+2017-06-12 18:07:48 --> ad_id:1
+2017-06-12 18:07:48 --> category_id:0
+2017-06-12 18:07:48 --> Update query:UPDATE ads SET title = 'prodajem traktor', text = 'Citroen Nemo 1.4 HDI 50 kw. 2009 god. Kao nov. Tek ocarinjen . Na ime kupca svi troskovi placeni , vasa je samo registracija ne treba da placate prevod jer je carinjen na firmu. . Motor, limarija, ...                                                                                                                                                ', category_id = 0 WHERE ads.id = 1
+2017-06-12 18:08:51 --> ad_id:1
+2017-06-12 18:08:51 --> category_id:0
+2017-06-12 18:08:51 --> Update query:UPDATE ads SET title = 'prodajem traktor', text = 'Citroen Nemo 1.4 HDI 50 kw. 2009 god. Kao nov. Tek ocarinjen . Na ime kupca svi troskovi placeni , vasa je samo registracija ne treba da placate prevod jer je carinjen na firmu. . Motor, limarija, ...                                                                                                                                                ', category_id = 0 WHERE ads.id = 1
+2017-06-12 18:17:41 --> ad_id:1
+2017-06-12 18:17:41 --> category_id:0
+2017-06-12 18:17:41 --> Update query:UPDATE ads SET title = 'prodajem traktor 2', text = '                            Citroen Nemo 1.4 HDI 50 kw. 2009 god. Kao nov. Tek ocarinjen . Na ime kupca svi troskovi placeni , vasa je samo registracija ne treba da placate prevod jer je carinjen na firmu. . Motor, limarija, ...                                                                                                                                                ', category_id = 0 WHERE ads.id = 1
+2017-06-12 18:24:35 --> ad_id:1
+2017-06-12 18:24:35 --> category_id:0
+2017-06-12 18:24:35 --> Update query:UPDATE ads SET title = 'prodajem traktor 3', text = ' Citroen Nemo 1.4 HDI 50 kw. 2009 god. Kao nov. Tek ocarinjen . Na ime kupca svi troskovi placeni , vasa je samo registracija ne treba da placate prevod jer je carinjen na firmu. . Motor, limarija, ...', category_id = 0 WHERE ads.id = 1
+2017-06-12 18:26:02 --> ad_id:1
+2017-06-12 18:26:02 --> category_id:0
+2017-06-12 18:26:02 --> Update query:UPDATE ads SET title = 'prodajem traktor 3', text = ' Citroen Nemo 1.4 HDI 50 kw. 2009 god. Kao nov. Tek ocarinjen . Na ime kupca svi troskovi placeni , vasa je samo registracija ne treba da placate prevod jer je carinjen na firmu. . Motor, limarija, ...', category_id = 0 WHERE ads.id = 1
+2017-06-12 18:29:17 --> ad_id:1
+2017-06-12 18:29:17 --> category_id:
+2017-06-12 18:29:17 --> Update query:UPDATE ads SET title = 'prodajem traktor 3', text = ' Citroen Nemo 1.4 HDI 50 kw. 2009 god. Kao nov. Tek ocarinjen . Na ime kupca svi troskovi placeni , vasa je samo registracija ne treba da placate prevod jer je carinjen na firmu. . Motor, limarija, ...', category_id =  WHERE ads.id = 1
+2017-06-12 18:31:12 --> ad_id:1
+2017-06-12 18:31:12 --> category_id:2
+2017-06-12 18:31:12 --> Update query:UPDATE ads SET title = 'prodajem traktor 3', text = ' Citroen Nemo 1.4 HDI 50 kw. 2009 god. Kao nov. Tek ocarinjen . Na ime kupca svi troskovi placeni , vasa je samo registracija ne treba da placate prevod jer je carinjen na firmu. . Motor, limarija, ...', category_id = 2 WHERE ads.id = 1
+2017-06-12 18:38:13 --> ad_id:1
+2017-06-12 18:38:13 --> category_id:3
+2017-06-12 18:38:13 --> Update query:UPDATE ads SET title = 'prodajem traktor 4', text = ' Citroen Nemo 1.4 HDI 50 kw. 2009 god. Kao nov. Tek ocarinjen . Na ime kupca svi troskovi placeni , vasa je samo registracija ne treba da placate prevod jer je carinjen na firmu. . Motor, limarija, ...', category_id = 3 WHERE ads.id = 1
+2017-06-12 18:38:18 --> ad_id:1
+2017-06-12 18:38:18 --> category_id:2
+2017-06-12 18:38:18 --> Update query:UPDATE ads SET title = 'prodajem traktor 4', text = ' Citroen Nemo 1.4 HDI 50 kw. 2009 god. Kao nov. Tek ocarinjen . Na ime kupca svi troskovi placeni , vasa je samo registracija ne treba da placate prevod jer je carinjen na firmu. . Motor, limarija, ...', category_id = 2 WHERE ads.id = 1
+2017-06-12 18:41:05 --> ad_id:1
+2017-06-12 18:41:05 --> category_id:2
+2017-06-12 18:41:05 --> Update query:UPDATE ads SET title = 'prodajem traktor 5', text = ' Citroen Nemo 1.4 HDI 50 kw. 2009 god. Kao nov. Tek ocarinjen . Na ime kupca svi troskovi placeni , vasa je samo registracija ne treba da placate prevod jer je carinjen na firmu. . Motor, limarija, ...', category_id = 2 WHERE ads.id = 1
+2017-06-12 18:41:26 --> ad_id:5
+2017-06-12 18:41:26 --> category_id:2
+2017-06-12 18:41:26 --> Update query:UPDATE ads SET title = 'Dvorisni stan 1', text = 'Dvorisni stan na par minuta peske od glavnog ulaza na festival. Internet, ktv, dva bracna lezaja plus singl kreveti po potrebi. Maksimum 10 osoba. Imam dva stana u istom dvoristu.', category_id = 2 WHERE ads.id = 5

@@ -2,7 +2,17 @@
 
 <?php
 
-  $log->writeLog("test",null);
+    if (isset($_POST['submit'])) {
+      //echo "stisnjeno dugme update";
+      $updatedAd = new Ad($_POST);
+      //var_dump($_POST);
+      //echo("SESSION ad_id v:");
+      //var_dump($_SESSION['ad_id']);
+      $updatedAd->ad_id = (int)$_SESSION['ad_id'];
+      echo("updatedAd->ad_id:".$updatedAd->ad_id);
+      $dbOglasnik->updateAd($updatedAd);
+      header ('Location: ?id='.$updatedAd->ad_id);
+    }
 
     $ad_id = $_GET["id"];
     if(!isset($ad_id) || $ad_id==""){
@@ -10,12 +20,12 @@
         $log->writeLog("Nije predan ID za zapis AD.", null);
         die();
     }
-
+    $_SESSION['ad_id'] = $ad_id;
+    echo("SESSION ad_id:".$_SESSION['ad_id']);
     $adObj = new Ad($dbOglasnik->getAdById($ad_id)[0]);
 
-
     $sql = "SELECT * FROM categories";
-    $categories = $dbOglasnik->fetchData($sql);
+    $allCategories = $dbOglasnik->fetchData($sql);
 
 
     //var_dump($categories);
@@ -32,12 +42,16 @@
                         <textarea rows="10" name="text" placeholder="Type in the text of your ad..." required><?php echo $adObj->text ?></textarea>
 
 						            <!-- Dodati dropdown iz koga ce moci da se odabere kategorija oglasa -->
-                        <select name="categories">
-                            <?php
-                                foreach($categories as $key => $category){
-                                    echo ("<option value='$key'>".$category["name"]."</option>");
-                                }
-                            ?>
+                        <select name="category_id">
+
+                          <?php
+                              foreach ($allCategories as $category) {
+                          ?>
+                          <option value="<?php echo $category['id'] ?>" <?php if($category['id'] == (string)$adObj->category_id) { echo($category['id']);/*echo 'selected';*/ }else{echo($category['id'])} ?>>
+                              <?php echo $category['name'] ?>
+                          </option>
+                          <?php } ?>
+
                         </select>
 
                         <input type="submit" value="Update" name="submit">

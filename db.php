@@ -1,5 +1,6 @@
 <?php include 'log.php' ?>
 <?php
+  session_start();
 
   class Db{
     private $servername = "127.0.0.1";
@@ -8,10 +9,12 @@
     private $dbname = "online_oglasnik";
     public $conn;
     public $error = "";
+    public $log;
 
-    public function __construct(){
+    public function __construct($logObj){
       try {
 
+          $this->log = isset($logObj)? $logObj : new Log();
           $this->conn = new PDO("mysql:host=$this->servername;dbname=$this->dbname", $this->username, $this->password);
           // set the PDO error mode to exception
           $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -24,14 +27,22 @@
     }
 
     public function fetchData($query){
-         //echo ($sql);
-        $statement = $this->conn->prepare($query);
-        // execute statement
-        $statement->execute();
-        // set the resulting array to associative
-        $statement->setFetchMode(PDO::FETCH_ASSOC);
-        // gets data from DB
-        return $statement->fetchAll();
+       //echo ($sql);
+      $statement = $this->conn->prepare($query);
+      // execute statement
+      $statement->execute();
+      // set the resulting array to associative
+      $statement->setFetchMode(PDO::FETCH_ASSOC);
+      // gets data from DB
+      return $statement->fetchAll();
+    }
+
+    public function executeQuery($query){
+      //echo ($sql);
+      $statement = $this->conn->prepare($query);
+      // execute statement
+      $statement->execute();
+      return true;
     }
 
     public function getAdById($adId){
@@ -44,6 +55,14 @@
 
       return $this->fetchData($sql);
 
+    }
+
+    public function updateAd($ad){
+      $this->log->writeLog("ad_id:$ad->ad_id", null);
+      $this->log->writeLog("category_id:$ad->category_id", null);
+      $updateAdQuery = "UPDATE ads SET title = '{$ad->title}', text = '{$ad->text}', category_id = $ad->category_id WHERE ads.id = $ad->ad_id";
+      $this->log->writeLog("Update query:$updateAdQuery", null);
+      $this->executeQuery($updateAdQuery);
     }
 
   }
@@ -59,9 +78,9 @@
     public $email;
     public $category_name;
     private $username;
-    private $category_id;
-    private $user_id;
-    private $ad_id;
+    public $category_id;
+    public $user_id;
+    public $ad_id;
 
     public function __construct($record){
 
@@ -75,8 +94,10 @@
       $this->email = isset($record["email"]) ? $record["email"]:"";
       $this->category_name = isset($record["category_name"]) ? $record["category_name"]:"";
       $this->user_id = isset($record["user_id"]) ? $record["user_id"]:"";
-      $this->category_id = isset($record["category_id"]) ? $record["category_id"]:"";
-      $this->ad_id = isset($record["id"]) ? $record["id"]:"";
+      $this->category_id = isset($record["category_id"]) ? (int)$record["category_id"]:"";
+
+      $this->ad_id = isset($record["id"]) ? (int)$record["id"]:"";
+
     }
 
 
@@ -87,7 +108,7 @@
   $log = new Log();
 
   try{
-    $dbOglasnik = new Db();
+    $dbOglasnik = new Db($log);
     if($dbOglasnik->error!=""){
       echo($dbOglasnik->error);
       $log->writeLog($dbOglasnik->error, null);
