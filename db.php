@@ -1,9 +1,10 @@
+<?php include 'log.php' ?>
 <?php
 
   class Db{
     private $servername = "127.0.0.1";
     private $username = "root";
-    private $password = "password";
+    private $password = "vivify";
     private $dbname = "online_oglasnik";
     public $conn;
     public $error = "";
@@ -41,7 +42,7 @@
         LEFT JOIN users ON users.id = ads.user_id
         LEFT JOIN profiles ON profiles.user_id = users.id WHERE ads.id = $adId";
 
-      return $this->db->fetchData($sql);
+      return $this->fetchData($sql);
 
     }
 
@@ -62,7 +63,8 @@
     private $user_id;
     private $ad_id;
 
-    public function __construct(){
+    public function __construct($record){
+
       $this->title = isset($record["title"]) ? $record["title"]:"";
       $this->text = isset($record["text"]) ? $record["text"]:"";
       $this->created = isset($record["created_at"]) ? $record["created_at"]:"";
@@ -82,12 +84,18 @@
 
   }
 
-  $dbOglasnik = new Db();
-  if($dbOglasnik->error!=""){
-    echo($dbOglasnik->error);
-    return false;
-  }
+  $log = new Log();
 
+  try{
+    $dbOglasnik = new Db();
+    if($dbOglasnik->error!=""){
+      echo($dbOglasnik->error);
+      $log->writeLog($dbOglasnik->error, null);
+      return false;
+    }
+  }catch(Exception $ex){
+    $log->writeLog($ex->getMessage, $ex->getLine());
+  }
 
 
 ?>

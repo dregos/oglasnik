@@ -6,8 +6,11 @@
       echo("Niste predali ID!");
       die();
   }
+  $record = $dbOglasnik->getAdById($ad_id);
+  //var_dump($record[0]);
+  $adObj = new Ad($record[0]);
 
-  $adObj = new Ad($dbOglasnik->getAdById($ad_id));
+  //var_dump($adObj);
 
 ?>
 <?php include 'header.php'; ?>
@@ -17,18 +20,17 @@
                 <div class="container">
                     <h1>Ad</h1>
 
-
-                        <input type="text" value="<?php echo $adObj->title ?>" name="title" placeholder="Title">
-                        <textarea rows="10" name="text" placeholder="Type in the text of your ad..."></textarea>
-
+                      <form action="/ad.php">
+                        <input type="text" value="<?php echo $adObj->title ?>" name="title" placeholder="Title" readonly>
+                        <input type="text" value="<?php echo $adObj->created ?>" name="title" placeholder="Created" readonly>
+                        <input type="text" value="<?php echo $adObj->expires ?>" name="title" placeholder="Expires" readonly>
+                        <input type="text" value="<?php echo $adObj->category_name ?>" name="title" placeholder="Category" readonly>
+                        <input type="text" value="<?php echo $adObj->first_name ?>" name="title" readonly>
+                        <input type="text" value="<?php echo $adObj->last_name ?>" name="title" readonly>
+                        <textarea rows="10" name="text" placeholder="Type in the text of your ad..." readonly><?php echo $adObj->text ?></textarea>
+                      </form>
                         <!-- Dodati dropdown iz koga ce moci da se odabere kategorija oglasa -->
-                            <select name="categories">
-                                <?php
-                                    foreach($categories as $key => $category){
-                                        echo ("<option value='$key'>".$category["name"]."</option>");
-                                    }
-                                ?>
-                            </select>
+
 
 					<?php
 

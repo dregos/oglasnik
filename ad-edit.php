@@ -2,23 +2,17 @@
 
 <?php
 
-    if(!isset($_GET)){
-        return;
-        die();
-    }
+  $log->writeLog("test",null);
 
     $ad_id = $_GET["id"];
-    if(!isset($ad_id)){
+    if(!isset($ad_id) || $ad_id==""){
         echo("Niste predali ID!");
+        $log->writeLog("Nije predan ID za zapis AD.", null);
         die();
     }
 
-    $sql = "SELECT * FROM ads WHERE id=$ad_id";
-    $ad = $dbOglasnik->fetchData($sql);
+    $adObj = new Ad($dbOglasnik->getAdById($ad_id)[0]);
 
-    $ad_title=$ad[0]["title"];
-    $ad_location=$ad[0]["location"];
-    $ad_created=$ad[0]["created"];
 
     $sql = "SELECT * FROM categories";
     $categories = $dbOglasnik->fetchData($sql);
@@ -34,10 +28,10 @@
 
                 <div class="container">
                     <form action="" method="POST">
-                        <input type="text" value="<?php echo $ad_title ?>" name="title" placeholder="Title" required>
-                        <!--<textarea rows="10" name="text" placeholder="Type in the text of your ad..." required></textarea>-->
+                        <input type="text" value="<?php echo $adObj->title ?>" name="title" placeholder="Title" required>
+                        <textarea rows="10" name="text" placeholder="Type in the text of your ad..." required><?php echo $adObj->text ?></textarea>
 
-						<!-- Dodati dropdown iz koga ce moci da se odabere kategorija oglasa -->
+						            <!-- Dodati dropdown iz koga ce moci da se odabere kategorija oglasa -->
                         <select name="categories">
                             <?php
                                 foreach($categories as $key => $category){
