@@ -77,9 +77,6 @@
       $this->ad_id = isset($record["id"]) ? $record["id"]:"";
     }
 
-    public function __set($record){
-
-    }
 
 
 
@@ -91,6 +88,6 @@
     return false;
   }
 
-  
+
 
 ?>
