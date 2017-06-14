@@ -21,14 +21,12 @@
         die();
     }
     $_SESSION['ad_id'] = $ad_id;
-    echo("SESSION ad_id:".$_SESSION['ad_id']);
+    //echo("SESSION ad_id:".$_SESSION['ad_id']);
     $adObj = new Ad($dbOglasnik->getAdById($ad_id)[0]);
 
     $sql = "SELECT * FROM categories";
     $allCategories = $dbOglasnik->fetchData($sql);
 
-
-    //var_dump($categories);
 ?>
 
 <?php include 'header.php'; ?>
@@ -43,14 +41,14 @@
 
 						            <!-- Dodati dropdown iz koga ce moci da se odabere kategorija oglasa -->
                         <select name="category_id">
-
                           <?php
-                              foreach ($allCategories as $category) {
+                            foreach ($allCategories as $category){
+                              $tmp = "<option value=".$category['id'];
+                              $tmp = $category['id']==$adObj->category_id ? $tmp. " selected>" : "$tmp>";
+                              $tmp = $tmp.$category['name'] . "</option>";
+                              echo($tmp);
+                            }
                           ?>
-                          <option value="<?php echo $category['id'] ?>" <?php if($category['id'] == (string)$adObj->category_id) { echo($category['id']);/*echo 'selected';*/ }else{echo($category['id'])} ?>>
-                              <?php echo $category['name'] ?>
-                          </option>
-                          <?php } ?>
 
                         </select>
 

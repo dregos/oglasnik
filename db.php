@@ -46,8 +46,8 @@
     }
 
     public function getAdById($adId){
-      $sql = "SELECT ads.id, ads.title, ads.text, ads.created_at, ads.expires_on,
-        categories.name AS category_name, users.id AS user_id,
+      $sql = "SELECT ads.id, ads.title, ads.text, ads.created_at, ads.expires_on,categories.id as category_id,
+        categories.name AS category_name, users.id AS user_id,users.email AS email,
         profiles.first_name, profiles.last_name, profiles.city, profiles.phone FROM ads
         LEFT JOIN categories ON categories.id = ads.category_id
         LEFT JOIN users ON users.id = ads.user_id
@@ -93,6 +93,7 @@
       $this->phone = isset($record["phone"]) ? $record["phone"]:"";
       $this->email = isset($record["email"]) ? $record["email"]:"";
       $this->category_name = isset($record["category_name"]) ? $record["category_name"]:"";
+
       $this->user_id = isset($record["user_id"]) ? $record["user_id"]:"";
       $this->category_id = isset($record["category_id"]) ? (int)$record["category_id"]:"";
 
