@@ -58,11 +58,15 @@
     }
 
     public function updateAd($ad){
-      $this->log->writeLog("ad_id:$ad->ad_id", null);
-      $this->log->writeLog("category_id:$ad->category_id", null);
-      $updateAdQuery = "UPDATE ads SET title = '{$ad->title}', text = '{$ad->text}', category_id = $ad->category_id WHERE ads.id = $ad->ad_id";
-      $this->log->writeLog("Update query:$updateAdQuery", null);
-      $this->executeQuery($updateAdQuery);
+      //$this->log->writeLog("ad_id:$ad->ad_id", null);
+      //$this->log->writeLog("category_id:$ad->category_id", null);
+      $sqlUpdateAd = "UPDATE ads SET title = '{$ad->title}', text = '{$ad->text}', category_id = $ad->category_id WHERE ads.id = $ad->ad_id";
+      //$this->log->writeLog("Update query:$updateAdQuery", null);
+      $this->executeQuery($sqlUpdateAd);
+    }
+
+    public function createAd($ad){
+      $sqlCreateAd = "INSERT INTO ads (ads.title, ads.text) VALUES ('{$ad->title}', '{$ad->text}', '')";
     }
 
   }

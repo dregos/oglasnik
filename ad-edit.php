@@ -24,6 +24,10 @@
     //echo("SESSION ad_id:".$_SESSION['ad_id']);
     $adObj = new Ad($dbOglasnik->getAdById($ad_id)[0]);
 
+    echo("<pre>");
+    print_r($adObj);
+    echo("</pre>");
+
     $sql = "SELECT * FROM categories";
     $allCategories = $dbOglasnik->fetchData($sql);
 
@@ -36,23 +40,27 @@
 
                 <div class="container">
                     <form action="" method="POST">
-                        <input type="text" value="<?php echo $adObj->title ?>" name="title" placeholder="Title" required>
-                        <textarea rows="10" name="text" placeholder="Type in the text of your ad..." required><?php echo $adObj->text ?></textarea>
+                      <input type="text" value="<?php echo $adObj->title ?>" name="title" placeholder="Title" required>
+                      <input type="text" value="<?php echo $adObj->first_name ?>" name="first_name" placeholder="Ime" required>
+                      <input type="text" value="<?php echo $adObj->last_name ?>" name="last_name" placeholder="Prezime" required>
+                      <input type="text" value="<?php echo $adObj->email ?>" name="email" placeholder="Email" required>
+                      <input type="text" value="<?php echo $adObj->phone ?>" name="phone" placeholder="Telefon" required>
+                      <textarea rows="10" name="text" placeholder="Type in the text of your ad..." required><?php echo $adObj->text ?></textarea>
 
 						            <!-- Dodati dropdown iz koga ce moci da se odabere kategorija oglasa -->
-                        <select name="category_id">
-                          <?php
-                            foreach ($allCategories as $category){
-                              $tmp = "<option value=".$category['id'];
-                              $tmp = $category['id']==$adObj->category_id ? $tmp. " selected>" : "$tmp>";
-                              $tmp = $tmp.$category['name'] . "</option>";
-                              echo($tmp);
-                            }
-                          ?>
+                      <select name="category_id">
+                        <?php
+                          foreach ($allCategories as $category){
+                            $tmp = "<option value=".$category['id'];
+                            $tmp = $category['id']==$adObj->category_id ? $tmp. " selected>" : "$tmp>";
+                            $tmp = $tmp.$category['name'] . "</option>";
+                            echo($tmp);
+                          }
+                        ?>
 
-                        </select>
+                      </select>
 
-                        <input type="submit" value="Update" name="submit">
+                      <input type="submit" value="Update" name="submit">
                     </form>
                 </div>
 
